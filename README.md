@@ -202,4 +202,4 @@ Atau connect repo GitHub di dashboard Netlify:
 
 ## Lisensi
 
-MIT © 2025 Septian Rizky Izza Ramadhan (REPHY)
+MIT © 2026 Septian Rizky Izza Ramadhan (REPHY)
