@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent text-ink;
+  }
+}
+
+@layer utilities {
+  .label {
+    @apply font-mono text-xs uppercase tracking-[0.15em] text-muted;
+  }
+
+  .label-accent {
+    @apply font-mono text-xs uppercase tracking-[0.15em] text-accent;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .grid-pattern {
+    background-image: linear-gradient(
+        to right,
+        rgba(10, 10, 10, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(10, 10, 10, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .section-dark {
+    @apply bg-ink text-paper;
+  }
+
+  .section-dark .label {
+    @apply text-paper/50;
+  }
+
+  .section-dark .label-accent {
+    @apply text-accent;
+  }
+
+  .section-teal {
+    @apply bg-accent-deep text-paper;
+  }
+
+  .section-teal .label,
+  .section-teal .label-accent {
+    @apply text-paper/70;
+  }
+}
